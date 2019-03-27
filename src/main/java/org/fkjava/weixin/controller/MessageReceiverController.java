@@ -1,5 +1,6 @@
 package org.fkjava.weixin.controller;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-//控制器 : 负责接收用户的请求参数、调用业务逻辑层代码、返回视图/结果给客户端（浏览器）
-//@Controller  基于JSP的控制器
-//@RestController 符合RESTful风格的WEB服务的控制器
-//RESTful通过不同的请求方法调用不同的处理程序，返回的结果仅仅是数据，不包含视图（HTML、JSP）
+// 控制器 : 负责接收用户的请求参数、调用业务逻辑层代码、返回视图/结果给客户端（浏览器）
+// @Controller  基于JSP的控制器
+// @RestController 符合RESTful风格的WEB服务的控制器
+// RESTful通过不同的请求方法调用不同的处理程序，返回的结果仅仅是数据，不包含视图（HTML、JSP）
 @RestController
-//各自写代码的时候，把/kemao_1改为【/拼音名】，用于后面作为路径反向代理的时候区分不同人的代码
-//@RequestMapping表示的含义：URL跟控制器的关系映射
+// 各自写代码的时候，把/kemao_1改为【/拼音名】，用于后面作为路径反向代理的时候区分不同人的代码
+// @RequestMapping表示的含义：URL跟控制器的关系映射
 @RequestMapping("/hhq_1/weixin/receiver")
 public class MessageReceiverController {
 
@@ -51,3 +52,4 @@ public class MessageReceiverController {
 		return "success";
 	}
 }
+
