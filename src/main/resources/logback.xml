@@ -22,6 +22,7 @@
 	<logger name="org.fkjava" level="trace" />
 
 	<root level="error">
+	
 		<appender-ref ref="CONSOLE" />
 	</root>
 </configuration>
