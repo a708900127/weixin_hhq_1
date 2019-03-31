@@ -45,7 +45,7 @@ public class ShortvideoInMessage extends InMessage {
 	public void setThumbMediaId(String thumbMediaId) {
 		this.thumbMediaId = thumbMediaId;
 	}
-
+	
 	
 	@Override
 	public String toString() {

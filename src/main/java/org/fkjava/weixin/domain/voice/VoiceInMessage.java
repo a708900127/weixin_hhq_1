@@ -46,9 +46,6 @@ public class VoiceInMessage extends InMessage {
 	public void setFormat(String format) {
 		this.format = format;
 	}
-
-	
-	
 	@Override
 	public String toString() {
 		return "VoiceInMessage [mediaId=" + mediaId + ", format=" + format + ", getToUserName()=" + getToUserName()

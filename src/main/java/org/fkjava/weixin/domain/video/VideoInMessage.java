@@ -45,8 +45,6 @@ public class VideoInMessage extends InMessage {
 	public void setThumbMediaId(String thumbMediaId) {
 		this.thumbMediaId = thumbMediaId;
 	}
-
-	
 	@Override
 	public String toString() {
 		return "VideoInMessage [mediaId=" + mediaId + ", thumbMediaId=" + thumbMediaId + ", getToUserName()="

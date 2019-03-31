@@ -77,8 +77,6 @@ public abstract class InMessage implements Serializable {
 		return msgId;
 	}
 
-	
-	
 	public void setMsgId(Long msgId) {
 		this.msgId = msgId;
 	}

@@ -18,10 +18,8 @@ public class MessageTypeMapper {
 
 	// 通过一个Map记录了消息类型和类的关系
 	static {
-		typeMap.put("text", TextInMessage.class);
-		
+		typeMap.put("text", TextInMessage.class);	
 		typeMap.put("image", ImageInMessage.class);
-
 		typeMap.put("voice", VoiceInMessage.class);
 		typeMap.put("video", VideoInMessage.class);
 		typeMap.put("location", LocationInMessage.class);

@@ -38,6 +38,7 @@ public class MessageReceiverController {
 		return echostr;
 	}
 
+	
 	// 当微信客户端发送任意消息给公众号的时候，消息都会通过POST方式提交到当前类里面。
 	// @PostMapping专门用于处理POST请求。
 	// 消息的格式是XML形式的字符串，整个消息放入了请求体里面。

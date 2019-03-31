@@ -57,8 +57,6 @@ public class LinkInMessage extends InMessage {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-
-	
 	@Override
 	public String toString() {
 		return "LinkInMessage [title=" + title + ", description=" + description + ", url=" + url + ", getToUserName()="

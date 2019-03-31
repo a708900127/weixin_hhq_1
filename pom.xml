@@ -64,6 +64,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		
 		<!-- Spring Boot的测试支持 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
