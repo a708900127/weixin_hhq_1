@@ -1,8 +1,22 @@
 package org.fkjava.weixin.controller;
 
 
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.StringReader;
+
+import javax.xml.bind.JAXB;
+
+import org.fkjava.weixin.domain.InMessage;
+import org.fkjava.weixin.service.MessageTypeMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.dao.DataAccessException;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.core.RedisCallback;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,7 +52,6 @@ public class MessageReceiverController {
 		return echostr;
 	}
 
-	
 	// 当微信客户端发送任意消息给公众号的时候，消息都会通过POST方式提交到当前类里面。
 	// @PostMapping专门用于处理POST请求。
 	// 消息的格式是XML形式的字符串，整个消息放入了请求体里面。
@@ -47,11 +60,21 @@ public class MessageReceiverController {
 			@RequestParam("timestamp") String timestamp, //
 			@RequestParam("nonce") String nonce, //
 			@RequestBody String xml) {
-		
-		
 		LOG.debug("收到用户发送给公众号的信息: \n-----------------------------------------\n"
 				+ "{}\n-----------------------------------------\n", xml);
 		// 由于后面会把消息放入队列中，所以这里直接返回success。
+		
+		String type = xml.substring(xml.indexOf("<MsgType><![CDATA[") + 18);
+		type = type.substring(0, type.indexOf("]]></MsgType>"));
+
+		Class<InMessage> cla = MessageTypeMapper.getClass(type);
+
+		// 使用JAXB完成XML转换为Java对象的操作
+		InMessage inMessage = JAXB.unmarshal(new StringReader(xml), cla);
+
+		LOG.debug("转换得到的消息对象 \n{}\n", inMessage.toString());
+		
+		
 		
 		return "success";
 	}
