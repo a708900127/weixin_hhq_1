@@ -46,9 +46,12 @@ public class MessageReceiverController {
 			@RequestParam("timestamp") String timestamp, //
 			@RequestParam("nonce") String nonce, //
 			@RequestBody String xml) {
+		
+		
 		LOG.debug("收到用户发送给公众号的信息: \n-----------------------------------------\n"
 				+ "{}\n-----------------------------------------\n", xml);
 		// 由于后面会把消息放入队列中，所以这里直接返回success。
+		
 		return "success";
 	}
 }
